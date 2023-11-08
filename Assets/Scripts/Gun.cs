@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
-
+        Ammo = 1;
     }
 
     void Update()
@@ -23,17 +23,40 @@ public class Gun : MonoBehaviour
     }
     private void Shoot(int Round)
     {
-        if( Ammo < Bullet.Length)
-        {
-            //Instantiate(Bullet[Round],)
+      switch(Ammo)
+      {
+        case 1:
+        Debug.Log("RED");
         Ammo++;
-        Debug.Log("Pew");
-        }
-        else if( Ammo == Bullet.Length)
-        {
-            Debug.Log( "RELOADING");
-            Ammo = 0;
-        }
+        break;
+
+        case 2:
+        Debug.Log("BLUE");
+        Ammo++;
+        break;
+        
+        case 3:
+        Debug.Log("GREEN");
+        Ammo++;
+        break;
+        
+        case 4:
+        Debug.Log("BROWN");
+        Ammo++;
+        break;
+        
+        case 5:
+        Debug.Log("YELLOW");
+        Ammo++;
+        break;
+
+        case 6:
+        Debug.Log("PURPLE");                                                                                                                                                                                                                                                                                                                                                   [. ]
+        Ammo = 1;
+        break;
+      }
+
+        
     }
     
 
