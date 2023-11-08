@@ -16,9 +16,13 @@ public class Character_Movement : MonoBehaviour
     private bool canDash;
 
     private Vector3 input;
+
+    Gun Bullet;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Bullet = GetComponent<Gun>();
     }
 
     void Update()
@@ -34,9 +38,10 @@ public class Character_Movement : MonoBehaviour
         input = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
         rb.velocity = new Vector3(input.x * playerSpeed, 0, input.z * playerSpeed);
-        if(Input.GetKeyDown(KeyCode.Space) && canDash)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(Dash());
+            abilityAction();
+            //StartCoroutine(Dash());
         }
 
     }
@@ -47,5 +52,31 @@ public class Character_Movement : MonoBehaviour
         rb.velocity = new Vector3(input.x * dashSpeed, 0, input.z * dashSpeed);
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
+    }
+
+    private void abilityAction()
+    {
+        switch(Bullet.Loaded)
+        {
+            case "Red Bullet":
+                Debug.Log("1");
+                break;
+            case "Blue Bullet":
+                Debug.Log("2");
+                break;
+            case "Green Bullet":
+                Debug.Log("3");
+                break;
+            case "Brown Bullet":
+                Debug.Log("4");
+                break;
+            case "Purple Bullet":
+                StartCoroutine(Dash());
+                Debug.Log("5");
+                break;
+            case "Yellow Bullet":
+                Debug.Log("6");
+                break;
+        }
     }
 }

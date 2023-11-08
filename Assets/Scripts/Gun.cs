@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     private int Ammo;
     [SerializeField]private Transform Revolver;
 
+    
     void Start()
     {
         Ammo = 1;
@@ -21,7 +22,7 @@ public class Gun : MonoBehaviour
     {
 
         if(Input.GetMouseButtonDown(0))
-        {
+        { 
             Shoot(Ammo);
         }
         Loaded = Bullet[currentBullet].name;
