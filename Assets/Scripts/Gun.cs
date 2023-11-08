@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]private GameObject[] Bullet;
+    private int Ammo;
+    [SerializeField]private Transform Revolver;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            Shoot(Ammo);
+        }
     }
+    private void Shoot(int Round)
+    {
+        if( Ammo < Bullet.Length)
+        {
+            //Instantiate(Bullet[Round],)
+        Ammo++;
+        Debug.Log("Pew");
+        }
+        else if( Ammo == Bullet.Length)
+        {
+            Debug.Log( "RELOADING");
+            Ammo = 0;
+        }
+    }
+    
+
 }
