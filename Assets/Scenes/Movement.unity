@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 528971172}
   - component: {fileID: 528971171}
   - component: {fileID: 528971176}
+  - component: {fileID: 528971177}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   dashDuration: 0.5
-  dashSpeed: 10
+  dashSpeed: 20
 --- !u!65 &528971172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -366,6 +367,58 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &528971177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528971170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd0413ca778b7d4b863cd6addc9ff58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet:
+  - {fileID: 7910763430103074757, guid: 9693888ed7e54f44bba43f520d64cc8f, type: 3}
+  - {fileID: 3674726300431091144, guid: a26d4344833599147a38274670f233bc, type: 3}
+  - {fileID: 7486457952015542953, guid: 2de10c781f9083a438c7130367007437, type: 3}
+  - {fileID: 3583921726408473260, guid: 5b37007bb6ed581488dc3145ba501747, type: 3}
+  - {fileID: 7521374951466670673, guid: 9542887fab74f7b428e436e0ae8c8152, type: 3}
+  - {fileID: 7366909859907773705, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
+  Loaded: 
+  Revolver: {fileID: 0}
+--- !u!1 &1221527411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1221527412}
+  m_Layer: 0
+  m_Name: Chamber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1221527412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221527411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.8143044, y: 12.979856, z: 0.9228458}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1426671373
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,3 +625,4 @@ SceneRoots:
   - {fileID: 468601089}
   - {fileID: 1426671377}
   - {fileID: 528971175}
+  - {fileID: 1221527412}
