@@ -585,6 +585,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4582654757726905525, guid: 9542887fab74f7b428e436e0ae8c8152, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7521374951466670673, guid: 9542887fab74f7b428e436e0ae8c8152, type: 3}
       propertyPath: m_Name
       value: Yellow Bullet
@@ -602,6 +606,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3408054464971332325, guid: 5b37007bb6ed581488dc3145ba501747, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3496583384487992355, guid: 5b37007bb6ed581488dc3145ba501747, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -659,6 +667,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1077110131847747861, guid: 9693888ed7e54f44bba43f520d64cc8f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7910763430103074757, guid: 9693888ed7e54f44bba43f520d64cc8f, type: 3}
       propertyPath: m_Name
       value: Red Bullet
@@ -726,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 359140173721096381, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 6.53
       objectReference: {fileID: 0}
     - target: {fileID: 359140173721096381, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -759,6 +771,10 @@ PrefabInstance:
     - target: {fileID: 359140173721096381, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185339143346674863, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7366909859907773705, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
       propertyPath: m_Name
@@ -821,6 +837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 7542715418426641134, guid: 2de10c781f9083a438c7130367007437, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -834,6 +854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 642930991958644141, guid: a26d4344833599147a38274670f233bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1609903334077841045, guid: a26d4344833599147a38274670f233bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
