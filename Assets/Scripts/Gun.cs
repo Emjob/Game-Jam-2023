@@ -6,7 +6,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
-    [SerializeField]private List<GameObject> Bullet;
+    [SerializeField]public List<GameObject> Bullet;
+    public List<string> BulletNames = new List<string>(6);
     [SerializeField] private GameObject normalBullet;
 
     public string Loaded;
@@ -18,22 +19,29 @@ public class Gun : MonoBehaviour
     
     void Start()
     {
+        for (int i = 0; i < Bullet.Count; i++)
+        {
+            BulletNames.Add(Bullet[i].name);
+        }
         Ammo = 1;
      //   Bullet = GameObject.FindGameObjectsWithTag("Bullet");
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Bullet.RemoveAt(chamberIndex);
             Bullet.Add(normalBullet);
             chamberIndex--;
+            listUpdates();
         }
         if(Input.GetMouseButtonDown(0))
         { 
             Shoot(Ammo);
         }
+        
         Loaded = Bullet[currentBullet].name;
     }
     private void Shoot(int Round)
@@ -76,5 +84,13 @@ public class Gun : MonoBehaviour
         Ammo = 1;
         break;
       } 
-    }  
+    }
+    private void listUpdates()
+    {
+        BulletNames.Clear();
+        for (int i = 0; i < Bullet.Count; i++)
+        {
+            BulletNames.Add(Bullet[i].name);
+        }
+    }
 }

@@ -27,7 +27,18 @@ public class Character_Movement : MonoBehaviour
 
     void Update()
     {
-        if(isDashing)
+        if(Bullet.BulletNames.Contains("Purple Bullet"))
+        {
+            canDash = true;
+        }
+        else
+        {
+            canDash = false;
+        }
+
+        
+        
+        if (isDashing)
         {
             return;
         }
@@ -38,45 +49,18 @@ public class Character_Movement : MonoBehaviour
         input = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
         rb.velocity = new Vector3(input.x * playerSpeed, 0, input.z * playerSpeed);
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            abilityAction();
-            //StartCoroutine(Dash());
+            StartCoroutine(Dash());
         }
 
     }
-    
+
     private IEnumerator Dash()
     {
         isDashing = true;
         rb.velocity = new Vector3(input.x * dashSpeed, 0, input.z * dashSpeed);
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
-    }
-
-    private void abilityAction()
-    {
-        switch(Bullet.Loaded)
-        {
-            case "Red Bullet":
-                Debug.Log("1");
-                break;
-            case "Blue Bullet":
-                Debug.Log("2");
-                break;
-            case "Green Bullet":
-                Debug.Log("3");
-                break;
-            case "Brown Bullet":
-                Debug.Log("4");
-                break;
-            case "Purple Bullet":
-                StartCoroutine(Dash());
-                Debug.Log("5");
-                break;
-            case "Yellow Bullet":
-                Debug.Log("6");
-                break;
-        }
     }
 }
