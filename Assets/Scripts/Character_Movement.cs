@@ -13,6 +13,7 @@ public class Character_Movement : MonoBehaviour
     public float dashDuration;
     public float dashSpeed;
     private bool isDashing;
+    private bool canDash;
 
     private Vector3 input;
     private void Start()
@@ -33,7 +34,7 @@ public class Character_Movement : MonoBehaviour
         input = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
         rb.velocity = new Vector3(input.x * playerSpeed, 0, input.z * playerSpeed);
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
         }

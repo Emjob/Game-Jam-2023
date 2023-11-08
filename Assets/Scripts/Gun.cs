@@ -51,7 +51,7 @@ public class Gun : MonoBehaviour
         break;
 
         case 6:
-        Debug.Log("PURPLE");                                                                                                                                                                                                                                                                                                                                                   [. ]
+        Debug.Log("PURPLE");                                                                                                                                                                                                                                                                                                                                               
         Ammo = 1;
         break;
       }
