@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
 
-    [SerializeField]private GameObject[] Bullet;
+    [SerializeField]private List<GameObject> Bullet;
+    [SerializeField] private GameObject normalBullet;
+
     public string Loaded;
     private int currentBullet;
+    private int chamberIndex = 5;
     private int Ammo;
     [SerializeField]private Transform Revolver;
 
@@ -20,7 +24,12 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Bullet.RemoveAt(chamberIndex);
+            Bullet.Add(normalBullet);
+            chamberIndex--;
+        }
         if(Input.GetMouseButtonDown(0))
         { 
             Shoot(Ammo);
