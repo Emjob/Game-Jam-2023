@@ -53,7 +53,7 @@ public class Character_Movement : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
-
+     //   Debug.Log(rb.velocity);
     }
 
     private IEnumerator Dash()
