@@ -1,29 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
 
-    [SerializeField]private GameObject[] Bullet;
+    [SerializeField]public List<GameObject> Bullet;
+    public List<string> BulletNames = new List<string>(6);
+    [SerializeField] private GameObject normalBullet;
+
     public string Loaded;
     private int currentBullet;
+    private int chamberIndex = 5;
     private int Ammo;
     [SerializeField]private Transform Revolver;
 
+    
     void Start()
     {
+        for (int i = 0; i < Bullet.Count; i++)
+        {
+            BulletNames.Add(Bullet[i].name);
+        }
         Ammo = 1;
      //   Bullet = GameObject.FindGameObjectsWithTag("Bullet");
     }
 
     void Update()
     {
-
-        if(Input.GetMouseButtonDown(0))
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Bullet.RemoveAt(chamberIndex);
+            Bullet.Add(normalBullet);
+            chamberIndex--;
+            listUpdates();
+        }
+        if(Input.GetMouseButtonDown(0))
+        { 
             Shoot(Ammo);
         }
+        
         Loaded = Bullet[currentBullet].name;
     }
     private void Shoot(int Round)
@@ -66,5 +84,13 @@ public class Gun : MonoBehaviour
         Ammo = 1;
         break;
       } 
-    }  
+    }
+    private void listUpdates()
+    {
+        BulletNames.Clear();
+        for (int i = 0; i < Bullet.Count; i++)
+        {
+            BulletNames.Add(Bullet[i].name);
+        }
+    }
 }

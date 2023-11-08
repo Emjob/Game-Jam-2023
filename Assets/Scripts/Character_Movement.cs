@@ -16,14 +16,29 @@ public class Character_Movement : MonoBehaviour
     private bool canDash;
 
     private Vector3 input;
+
+    Gun Bullet;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Bullet = GetComponent<Gun>();
     }
 
     void Update()
     {
-        if(isDashing)
+        if(Bullet.BulletNames.Contains("Purple Bullet"))
+        {
+            canDash = true;
+        }
+        else
+        {
+            canDash = false;
+        }
+
+        
+        
+        if (isDashing)
         {
             return;
         }
@@ -34,13 +49,13 @@ public class Character_Movement : MonoBehaviour
         input = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
         rb.velocity = new Vector3(input.x * playerSpeed, 0, input.z * playerSpeed);
-        if(Input.GetKeyDown(KeyCode.Space) && canDash)
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
         }
 
     }
-    
+
     private IEnumerator Dash()
     {
         isDashing = true;
