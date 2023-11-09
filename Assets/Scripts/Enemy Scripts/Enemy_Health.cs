@@ -47,14 +47,15 @@ public class Enemy_Health : MonoBehaviour
     }
     public void KnockBack()
     {
-        Debug.Log("Knock Register");
+        
         if(distanceToPlayer < 10)
         {
             float a = player.transform.position.x - transform.position.x;
             float b = player.transform.position.z - transform.position.z;
             float knockVelocityX = transform.position.x - a;
             float knockVelocityZ = transform.position.z - b;
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(knockVelocityX,0,knockVelocityZ);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(knockVelocityX * 0.5f,0,knockVelocityZ * 0.5f);
+            Debug.Log("Knock Register");
         }
     }
 }

@@ -22,11 +22,16 @@ public class Enemy_Brush : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
         if (Time.time > nextShotTime)
         {
             Instantiate(paint, transform.position, Quaternion.identity);
             nextShotTime = Time.time + timeBetweenShots;
         }
+        Debug.Log(gameObject.name + gameObject.GetComponent<Rigidbody>().velocity);
+    }
+    void Move()
+    {
         enemy.SetDestination(player.transform.position);
         enemy.stoppingDistance = awayDistance;
     }
