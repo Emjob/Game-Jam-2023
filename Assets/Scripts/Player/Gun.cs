@@ -18,23 +18,20 @@ public class Gun : MonoBehaviour
     public int bulletSpeed;
     [SerializeField] private int shotCooldown;
 
-    public Camera cam;
-
     public string Loaded;
-    private int currentBullet;
+    [SerializeField]private int currentBullet;
     private int chamberIndex = 5;
     [SerializeField]private int Ammo;
-    [SerializeField]private Transform Revolver;
 
-    bool lerp = true;
+    bool lerp = false;
     public bool cantShoot;
     float lookSpeed = 100;
 
-    Character_Movement Ability;
+    public Character_Movement Ability;
     
     void Start()
     {
-        Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
+
         for (int i = 0; i < Bullet.Count; i++)
         {
             BulletNames.Add(Bullet[i].name);
@@ -81,10 +78,12 @@ public class Gun : MonoBehaviour
         currentBullet = 0;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                if(Ability.doubleShot){
+ 
+        Debug.Log("RED");
+                if (Ability.doubleShot)
+                {
                     StartCoroutine(DoubleShot());
                 }
-        Debug.Log("RED");
                 StartCoroutine(NextBullet());
         break;
                 
@@ -92,7 +91,7 @@ public class Gun : MonoBehaviour
         currentBullet++;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                if(Ability.doubleShot){
+                if (Ability.doubleShot){
                     StartCoroutine(DoubleShot());
                 }
         Debug.Log("BLUE");

@@ -10,6 +10,8 @@ public class Character_Movement : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
+    [SerializeField]private GameObject[] Enemies;
+
     public float dashDuration;
     public float dashSpeed;
     private bool isDashing;
@@ -18,6 +20,7 @@ public class Character_Movement : MonoBehaviour
     public bool bulletShield;
     public bool canDash;
     public bool doubleShot;
+    public bool canKnock;
 
     private Vector3 input;
 
@@ -32,6 +35,7 @@ public class Character_Movement : MonoBehaviour
 
     void Update()
     {
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (Bullet.BulletNames.Contains("Purple Bullet"))
         {
             canDash = true;
@@ -64,6 +68,14 @@ public class Character_Movement : MonoBehaviour
         {
             doubleShot = false;
         }
+        if (Bullet.BulletNames.Contains("Brown Bullet"))
+        {
+            canKnock = true;
+        }
+        else
+        {
+            canKnock = false;
+        }
         if (isDashing)
         {
             return;
@@ -78,6 +90,14 @@ public class Character_Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            for(int i = 0; i < Enemies.Length; i++)
+            {
+                Enemies[i].GetComponent<Enemy_Health>().KnockBack();
+                Debug.Log("Key Register");
+            }
         }
      //   Debug.Log(rb.velocity);
     }

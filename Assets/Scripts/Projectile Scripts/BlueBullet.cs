@@ -11,7 +11,7 @@ public class BlueBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
+       Ability = GameObject.FindGameObjectWithTag("Player").GetComponent<Character_Movement>();
         if (Ability.bulletShield)
         {
             GameObject.FindWithTag("Player").GetComponent<Player_Health>().Shield(shielding);

@@ -7,17 +7,22 @@ public class Enemy_Health : MonoBehaviour
     public int health;
     public int playerHeal;
 
+    [SerializeField]private float distanceToPlayer;
+
     Character_Movement Ability;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
     }
 
     public void takeDamage(int damage)
@@ -38,6 +43,18 @@ public class Enemy_Health : MonoBehaviour
         if(other.tag == "Explosion")
         {
             takeDamage(other.GetComponent<Explode>().damage);
+        }
+    }
+    public void KnockBack()
+    {
+        Debug.Log("Knock Register");
+        if(distanceToPlayer < 10)
+        {
+            float a = player.transform.position.x - transform.position.x;
+            float b = player.transform.position.z - transform.position.z;
+            float knockVelocityX = transform.position.x - a;
+            float knockVelocityZ = transform.position.z - b;
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(knockVelocityX,0,knockVelocityZ);
         }
     }
 }
