@@ -23,5 +23,9 @@ public class BlueBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else
+        {
+            other.GetComponent<Enemy_Health>().takeDamage(Damage);
+        }
     }
 }

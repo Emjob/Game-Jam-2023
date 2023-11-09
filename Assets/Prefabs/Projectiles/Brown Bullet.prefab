@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6421381634860044816}
   - component: {fileID: 3408054464971332325}
   - component: {fileID: 5349529563422335263}
+  - component: {fileID: -1965769939099647274}
   m_Layer: 0
   m_Name: Brown Bullet
   m_TagString: Bullet
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-1965769939099647274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583921726408473260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0288630c0647c3e46b28062fb23ed52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1

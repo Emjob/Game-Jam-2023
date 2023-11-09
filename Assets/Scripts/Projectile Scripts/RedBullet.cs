@@ -21,6 +21,10 @@ public class RedBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<Enemy_Health>().takeDamage(Damage);
+        }
         Destroy(this.gameObject);
         Instantiate(Explosion,this.transform.position,Quaternion.identity);
     }
