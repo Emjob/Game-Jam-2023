@@ -13,11 +13,7 @@ public class Character_Movement : MonoBehaviour
     public float dashDuration;
     public float dashSpeed;
     private bool isDashing;
-
-    public bool healOnKill;
-    public bool bulletShield;
     public bool canDash;
-    public bool doubleShot;
 
     private Vector3 input;
 
@@ -39,30 +35,6 @@ public class Character_Movement : MonoBehaviour
         else
         {
             canDash = false;
-        }
-        if (Bullet.BulletNames.Contains("Green Bullet"))
-        {
-            healOnKill = true;
-        }
-        else
-        {
-            healOnKill = false;
-        }
-        if (Bullet.BulletNames.Contains("Blue Bullet"))
-        {
-            bulletShield = true;
-        }
-        else
-        {
-            bulletShield = false;
-        }
-        if (Bullet.BulletNames.Contains("Yellow Bullet"))
-        {
-            doubleShot = true;
-        }
-        else
-        {
-            doubleShot = false;
         }
         if (isDashing)
         {

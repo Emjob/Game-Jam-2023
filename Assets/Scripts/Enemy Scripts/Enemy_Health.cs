@@ -6,12 +6,10 @@ public class Enemy_Health : MonoBehaviour
 {
     public int health;
     public int playerHeal;
-
-    Character_Movement Ability;
     // Start is called before the first frame update
     void Start()
     {
-        Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
+        
     }
 
     // Update is called once per frame
@@ -25,10 +23,7 @@ public class Enemy_Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            if (Ability.healOnKill)
-            {
-                GameObject.FindWithTag("Player").GetComponent<Player_Health>().Heal(playerHeal);
-            }
+            GameObject.FindWithTag("Player").GetComponent<Player_Health>().Heal(playerHeal);
             Destroy(gameObject);
         }
     }

@@ -17,7 +17,6 @@ public class Player_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if(shield > 0)
         {
             StartCoroutine(RemoveShield());

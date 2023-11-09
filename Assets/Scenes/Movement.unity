@@ -2463,7 +2463,7 @@ GameObject:
   - component: {fileID: 515805178}
   m_Layer: 0
   m_Name: Sprite renderer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2575,7 +2575,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -2613,11 +2613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2b15f0c681cf94eab4befc0d43a0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   maxHealth: 0
-=======
-  maxHealth: 10
->>>>>>> Stashed changes
   currentHealth: 0
   shield: 0
 --- !u!1 &528971170
@@ -2728,15 +2724,9 @@ MonoBehaviour:
   normalBullet: {fileID: 1125760154349548749, guid: 602e5758ee7bb6c4bbab33071f619187, type: 3}
   GunEnd: {fileID: 2090739542}
   bulletSpeed: 1000
-<<<<<<< Updated upstream
   cam: {fileID: 0}
-=======
-  shotCooldown: 0
-  cam: {fileID: 1699455253}
->>>>>>> Stashed changes
   Loaded: 
   Revolver: {fileID: 0}
-  cantShoot: 0
 --- !u!1 &719573957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,7 +2753,7 @@ Transform:
   m_GameObject: {fileID: 719573957}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071065, y: -0, z: -0, w: 0.7071072}
-  m_LocalPosition: {x: 0, y: 0.265, z: 0}
+  m_LocalPosition: {x: 0, y: 0.505, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5644,13 +5634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332f4f74bbbb974893a323a7c5dd3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   health: 100
   playerHeal: 0
-=======
-  health: 12
-  playerHeal: 10
->>>>>>> Stashed changes
 --- !u!43 &2087541688
 Mesh:
   m_ObjectHideFlags: 0

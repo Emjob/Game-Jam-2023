@@ -5,7 +5,7 @@ using UnityEngine;
 public class GreenBullet : MonoBehaviour
 {
     public int Damage;
-
+    public int heal;
     // Start is called before the first frame update
     void Start()
     {
