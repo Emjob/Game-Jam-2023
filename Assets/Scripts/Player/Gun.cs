@@ -27,9 +27,12 @@ public class Gun : MonoBehaviour
 
     bool lerp = true;
     float lookSpeed = 100;
+
+    Character_Movement Abilities;
     
     void Start()
     {
+        Abilities = GetComponent<Character_Movement>();
         for (int i = 0; i < Bullet.Count; i++)
         {
             BulletNames.Add(Bullet[i].name);
@@ -120,6 +123,7 @@ public class Gun : MonoBehaviour
         Ammo = 1;
         break;
       } 
+
     }
     private void listUpdates()
     {
@@ -128,6 +132,8 @@ public class Gun : MonoBehaviour
         {
             BulletNames.Add(Bullet[i].name);
         }
+        
+        
     }
    
 

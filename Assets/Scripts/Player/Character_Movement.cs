@@ -13,7 +13,7 @@ public class Character_Movement : MonoBehaviour
     public float dashDuration;
     public float dashSpeed;
     private bool isDashing;
-    private bool canDash;
+    public bool canDash;
 
     private Vector3 input;
 
@@ -21,13 +21,14 @@ public class Character_Movement : MonoBehaviour
 
     private void Start()
     {
+        canDash = true;
         rb = GetComponent<Rigidbody>();
      //   Bullet = GetComponent<Gun>();
     }
 
     void Update()
     {
-        if(Bullet.BulletNames.Contains("Purple Bullet"))
+        if (Bullet.BulletNames.Contains("Purple Bullet"))
         {
             canDash = true;
         }
@@ -35,9 +36,6 @@ public class Character_Movement : MonoBehaviour
         {
             canDash = false;
         }
-
-        
-        
         if (isDashing)
         {
             return;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy_Health : MonoBehaviour
 {
     public int health;
+    public int playerHeal;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Enemy_Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            GameObject.FindWithTag("Player").GetComponent<Player_Health>().Heal(playerHeal);
             Destroy(gameObject);
         }
     }

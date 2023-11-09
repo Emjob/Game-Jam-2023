@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player_Health : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int health;
+    public int maxHealth;
+    [SerializeField]private int currentHealth;
     void Start()
     {
-        
+     //  maxHealth = currentHealth;
     }
 
     // Update is called once per frame
@@ -16,4 +17,13 @@ public class Player_Health : MonoBehaviour
     {
         
     }
+    public void Heal(int heal) 
+    { 
+        if(currentHealth < maxHealth)
+        {
+            currentHealth += heal;
+        }
+        
+    }
+
 }
