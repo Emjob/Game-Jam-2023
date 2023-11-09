@@ -25,7 +25,9 @@ public class RedBullet : MonoBehaviour
         {
             other.GetComponent<Enemy_Health>().takeDamage(Damage);
         }
+        
+        GameObject Explode = Instantiate(Explosion,this.transform.position,Quaternion.identity);
+        Explode.GetComponent<Explode>().enabled = true;
         Destroy(this.gameObject);
-        Instantiate(Explosion,this.transform.position,Quaternion.identity);
     }
 }

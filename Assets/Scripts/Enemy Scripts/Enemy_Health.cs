@@ -25,4 +25,12 @@ public class Enemy_Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Explosion")
+        {
+            takeDamage(other.GetComponent<Explode>().damage);
+        }
+    }
 }

@@ -23,7 +23,7 @@ public class YellowBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        else
+        else if (other.tag == "Enemy")
         {
             other.GetComponent<Enemy_Health>().takeDamage(Damage);
         }
