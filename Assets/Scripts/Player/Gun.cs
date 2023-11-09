@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -24,6 +25,8 @@ public class Gun : MonoBehaviour
     private int Ammo;
     [SerializeField]private Transform Revolver;
 
+    bool lerp = true;
+    float lookSpeed = 100;
     
     void Start()
     {
@@ -37,12 +40,18 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        Vector3 point = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1));
-        // Using some math to calculate the point of intersection between the line going through the camera and the mouse position with the XZ-Plane
-        float t = cam.transform.position.y / (cam.transform.position.y - point.y);
-        Vector3 finalPoint = new Vector3(t * (point.x - cam.transform.position.x) + cam.transform.position.x, 1, t * (point.z - cam.transform.position.z) + cam.transform.position.z);
-        //Rotating the object to that point
-        transform.LookAt(finalPoint, Vector3.up);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane plane = new Plane(transform.up, transform.position);
+        float dist = Vector3.Distance(Camera.main.transform.position, transform.position);
+        plane.Raycast(ray, out dist);
+
+        Quaternion rotation = transform.rotation;
+        transform.LookAt(ray.GetPoint(dist));
+        if (lerp)
+        {
+            transform.rotation = Quaternion.Slerp(rotation, transform.rotation, lookSpeed * Time.deltaTime);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -57,7 +66,7 @@ public class Gun : MonoBehaviour
         }
         
         Loaded = Bullet[currentBullet].name;
-        Debug.Log(GunEnd.transform.forward * 1000);
+     //   Debug.Log(GunEnd.transform.forward * 1000);
     }
     private void Shoot(int Round)
     {
@@ -120,4 +129,7 @@ public class Gun : MonoBehaviour
             BulletNames.Add(Bullet[i].name);
         }
     }
+   
+
+    
 }

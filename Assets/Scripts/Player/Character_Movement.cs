@@ -17,12 +17,12 @@ public class Character_Movement : MonoBehaviour
 
     private Vector3 input;
 
-    Gun Bullet;
+    [SerializeField]  Gun Bullet;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Bullet = GetComponent<Gun>();
+     //   Bullet = GetComponent<Gun>();
     }
 
     void Update()

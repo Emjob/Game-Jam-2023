@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour
 {
-    [SerializeField] private GameObject Explosion;
     public int Damage;
+    private GameObject Explosion;
     // Start is called before the first frame update
     void Start()
     {
+        Explosion = GameObject.FindWithTag("Explosion");
         Damage = 2;
     }
 
