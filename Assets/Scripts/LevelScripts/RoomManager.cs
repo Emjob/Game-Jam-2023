@@ -6,10 +6,10 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] SpawnPoints;
-    //[Range(1, 6)]
-    //public int Rounds;
     private int round;
     public bool progress;
+    [SerializeField]private int maxRounds;
+    [SerializeField] private GameObject Door;
 
     void Start()
     {
@@ -19,11 +19,19 @@ public class RoomManager : MonoBehaviour
 
     void Update()
     {
-        if (progress)
+        if (round > maxRounds)
         {
-            round++;
-            progress = false;
+            if (progress)
+            {
+                round++;
+                progress = false;
+            }
         }
+        else if(round == maxRounds) 
+        {
+            NextRoom();
+        }
+
     }
 
 
@@ -34,10 +42,15 @@ public class RoomManager : MonoBehaviour
 
         for (int i = 0; i < SpawnPoints.Length - 1; i++)
         {
-            Instantiate(SpawnPoints[i].GetComponent<EnemyLists>().enemies[round], SpawnPoints[i].transform.position, Quaternion.identity);
+            Instantiate(SpawnPoints[i].GetComponent<EnemySpawns>().enemies[round], SpawnPoints[i].transform.position, Quaternion.identity);
         }
 
         Debug.Log(round);
 
+    }
+
+    void NextRoom()
+    {
+        Door.SetActive(false);   
     }
 }
