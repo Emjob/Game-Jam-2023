@@ -6,10 +6,16 @@ public class BlueBullet : MonoBehaviour
 {
     public int Damage;
     public int shielding;
+
+    Character_Movement Ability;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindWithTag("Player").GetComponent<Player_Health>().Shield(shielding);
+       Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
+        if (Ability.bulletShield)
+        {
+            GameObject.FindWithTag("Player").GetComponent<Player_Health>().Shield(shielding);
+        }
     }
 
     // Update is called once per frame

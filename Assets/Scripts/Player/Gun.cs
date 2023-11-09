@@ -16,23 +16,25 @@ public class Gun : MonoBehaviour
     private GameObject bulletInstance;
 
     public int bulletSpeed;
+    [SerializeField] private int shotCooldown;
 
     public Camera cam;
 
     public string Loaded;
     private int currentBullet;
     private int chamberIndex = 5;
-    private int Ammo;
+    [SerializeField]private int Ammo;
     [SerializeField]private Transform Revolver;
 
     bool lerp = true;
+    public bool cantShoot;
     float lookSpeed = 100;
 
-    Character_Movement Abilities;
+    Character_Movement Ability;
     
     void Start()
     {
-        Abilities = GetComponent<Character_Movement>();
+        Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
         for (int i = 0; i < Bullet.Count; i++)
         {
             BulletNames.Add(Bullet[i].name);
@@ -63,7 +65,7 @@ public class Gun : MonoBehaviour
             chamberIndex--;
             listUpdates();
         }
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !cantShoot)
         { 
             Shoot(Ammo);
         }
@@ -78,49 +80,69 @@ public class Gun : MonoBehaviour
         case 1:
         currentBullet = 0;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed); 
+        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                if(Ability.doubleShot){
+                    StartCoroutine(DoubleShot());
+                }
         Debug.Log("RED");
-        Ammo++;
+                StartCoroutine(NextBullet());
         break;
                 
         case 2:
         currentBullet++;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                if(Ability.doubleShot){
+                    StartCoroutine(DoubleShot());
+                }
         Debug.Log("BLUE");
-        Ammo++;
-        break;
+                StartCoroutine(NextBullet());
+                break;
         
         case 3:
         currentBullet++;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                if(Ability.doubleShot){
+                    StartCoroutine(DoubleShot());
+                }
         Debug.Log("GREEN");
-        Ammo++;
+        StartCoroutine(NextBullet());
         break;
         
         case 4:
         currentBullet++;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                if(Ability.doubleShot){
+                    StartCoroutine(DoubleShot());
+                }
         Debug.Log("BROWN");
-        Ammo++;
+        StartCoroutine(NextBullet());
         break;
         
         case 5:
         currentBullet++;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-        Debug.Log("YELLOW");
-        Ammo++;
+                if (Ability.doubleShot)
+                {
+                    StartCoroutine(DoubleShot());
+                }
+                Debug.Log("YELLOW");
+        StartCoroutine(NextBullet());
         break;
 
         case 6:
         currentBullet++;
         bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
         bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-        Debug.Log("PURPLE");                                                                                                                                                                                                                                                                                                                                               
-        Ammo = 1;
+                if (Ability.doubleShot)
+                {
+                    StartCoroutine(DoubleShot());
+                }
+                Debug.Log("PURPLE");                                                                                                                                                                                                                                                                                                                                               
+        StartCoroutine(NextBullet());
         break;
       } 
 
@@ -135,7 +157,28 @@ public class Gun : MonoBehaviour
         
         
     }
+    public IEnumerator NextBullet()
+    {
+        cantShoot = true;
+        yield return new WaitForSeconds(shotCooldown);
+        cantShoot = false;
+        if (Ammo < 7)
+        {
+            Ammo++;
+        }
+        if(Ammo == 7)
+        {
+            Ammo = 1;
+        }
+        
+    }
    
-
+    public IEnumerator DoubleShot()
+    {
+        
+        yield return new WaitForSeconds(0.5f);
+        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+    }
     
 }
