@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d5b8ba5e5b853ae4896122da97253026
+guid: 4187755ff500c3a40a6d1bea63ec9457
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BrushWalkSheet_0
+      name: paintbucketBOSSidle_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 64
-        width: 28
-        height: 62
+        x: 24
+        y: 22
+        width: 72
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2228e589dbf35a4f8b830d494a2780e
-      internalID: 2109025140
+      spriteID: d0e1e11b16a7131489eca753b01ae773
+      internalID: 802256507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrushWalkSheet_1
+      name: paintbucketBOSSidle_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 64
-        width: 29
-        height: 63
+        x: 152
+        y: 20
+        width: 72
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a7751631132b6a4e8463211d4d6dfb4
-      internalID: 618876546
+      spriteID: 84a2e2b705b56bf45b353df71929fe28
+      internalID: -1259687848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrushWalkSheet_2
+      name: paintbucketBOSSidle_2
       rect:
         serializedVersion: 2
-        x: 65
-        y: 64
-        width: 29
-        height: 63
+        x: 280
+        y: 21
+        width: 72
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6115d0f1b76e124e8bfa058fca2216b
-      internalID: -192044527
+      spriteID: e253b3816bf260f42b0c4f7d2ec463be
+      internalID: 177889096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrushWalkSheet_3
+      name: paintbucketBOSSidle_3
       rect:
         serializedVersion: 2
-        x: 98
-        y: 64
-        width: 28
-        height: 62
+        x: 408
+        y: 22
+        width: 74
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5094412c598f2164a9ceec6683038aab
-      internalID: 1375279742
+      spriteID: f19a7bcee3c016244a4e1fff5bce68f0
+      internalID: -2084355140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrushWalkSheet_4
+      name: paintbucketBOSSidle_4
       rect:
         serializedVersion: 2
-        x: 130
-        y: 64
-        width: 28
-        height: 62
+        x: 536
+        y: 22
+        width: 72
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,71 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 546655c22918c9b4a9655bbf5014a23c
-      internalID: -16100596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BrushWalkSheet_5
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 0
-        width: 29
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a34a62ddc774794785f5f551e195c5d
-      internalID: -1458782633
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BrushWalkSheet_6
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 0
-        width: 29
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4209931a9bf5d946a96229ca1e68ab3
-      internalID: -970529700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BrushWalkSheet_7
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 28
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ca5872693c6e314090c03a404c8975e
-      internalID: -261503515
+      spriteID: 612814996b1f6be4a887a8805f18cefc
+      internalID: -1754917393
       vertices: []
       indices: 
       edges: []
@@ -280,7 +217,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fa067977279b775428b665fbf3f59c25
+    spriteID: e7e6e92a3ed71ff4fbdb4c3414aa44c1
     internalID: 0
     vertices: []
     indices: 
@@ -288,14 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BrushWalkSheet_0: 2109025140
-      BrushWalkSheet_1: 618876546
-      BrushWalkSheet_2: -192044527
-      BrushWalkSheet_3: 1375279742
-      BrushWalkSheet_4: -16100596
-      BrushWalkSheet_5: -1458782633
-      BrushWalkSheet_6: -970529700
-      BrushWalkSheet_7: -261503515
+      paintbucketBOSSidle_0: 802256507
+      paintbucketBOSSidle_1: -1259687848
+      paintbucketBOSSidle_2: 177889096
+      paintbucketBOSSidle_3: -2084355140
+      paintbucketBOSSidle_4: -1754917393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
