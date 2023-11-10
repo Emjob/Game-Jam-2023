@@ -19,12 +19,9 @@ public class BrownBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Enemy")
+        if (other.tag != "Player" && other.tag != "Explosion")
         {
             Destroy(this.gameObject);
-        }
-        else if (other.tag == "Enemy")
-        {
             other.GetComponent<Enemy_Health>().takeDamage(Damage);
         }
     }

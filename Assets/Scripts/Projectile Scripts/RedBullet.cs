@@ -21,8 +21,9 @@ public class RedBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if(other.tag == "Player" && other.tag != "Explosion")
         {
+            Destroy(gameObject);
             other.GetComponent<Enemy_Health>().takeDamage(Damage);
         }
         

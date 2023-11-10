@@ -20,7 +20,6 @@ public class BlueBullet : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<Player_Health>().Shield(shielding);
         }
 
-        
 
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, 100f, Enemies);
 
@@ -30,7 +29,9 @@ public class BlueBullet : MonoBehaviour
 
             if (hit.collider.CompareTag("Enemy"))
             {
-                Debug.Log("AHDUAHSBDJHBFA");
+                hit.collider.GetComponent<Enemy_Health>().takeDamage(Damage);
+                Debug.DrawRay(transform.position, transform.forward, Color.blue,10,true);
+             //   Debug.Log("AHDUAHSBDJHBFA");
             }
         }
 
@@ -42,7 +43,7 @@ public class BlueBullet : MonoBehaviour
         
 
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
        

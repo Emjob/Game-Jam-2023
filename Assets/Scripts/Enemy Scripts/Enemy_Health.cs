@@ -11,20 +11,30 @@ public class Enemy_Health : MonoBehaviour
 
     [SerializeField]private float distanceToPlayer;
 
+    private GameObject[] Enemies;
+    
+    private float[] distanceToEnemy;
+
+    public float closestEnemy;
+
     Character_Movement Ability;
     GameObject player;
     // Start is called before the first frame update
+     
+
     void Start()
     {
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
         player = GameObject.FindWithTag("Player");
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-
+        
     }
 
     public void takeDamage(int damage)

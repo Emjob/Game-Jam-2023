@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject normalBullet;
 
     [SerializeField]private Transform GunEnd;
+    [SerializeField] private Transform[] ShotgunBarrel;
     private GameObject bulletInstance;
     LayerMask Enemies;
 
@@ -35,7 +36,7 @@ public class Gun : MonoBehaviour
     
     void Start()
     {
-
+        
         for (int i = 0; i < Bullet.Count; i++)
         {
             BulletNames.Add(Bullet[i].name);
@@ -105,9 +106,18 @@ public class Gun : MonoBehaviour
       {
         case 1:
         //currentBullet = 0;
-                if (Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                if (Loaded == "Blue Bullet")
                 {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    LAZERbeam();
+                }
+                else if (Loaded == "Green Bullet")
+                {
+                    FireShotgun();
+
+                }
+                else if (Loaded == "Purple Bullet")
+                {
+                    StartCoroutine(BurstFire());
                 }
                 else
                 {
@@ -123,10 +133,19 @@ public class Gun : MonoBehaviour
         break;
                 
         case 2:
-        //currentBullet++;
-                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                //currentBullet++;
+                if (Loaded == "Blue Bullet")
                 {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    LAZERbeam();
+                }
+                else if (Loaded == "Green Bullet")
+                {
+                    FireShotgun();
+
+                }
+                else if (Loaded == "Purple Bullet")
+                {
+                    StartCoroutine(BurstFire());
                 }
                 else
                 {
@@ -141,10 +160,19 @@ public class Gun : MonoBehaviour
                 break;
         
         case 3:
-        //currentBullet++;
-                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                //currentBullet++;
+                if (Loaded == "Blue Bullet")
                 {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    LAZERbeam();
+                }
+                else if (Loaded == "Green Bullet")
+                {
+                    FireShotgun();
+
+                }
+                else if (Loaded == "Purple Bullet")
+                {
+                    StartCoroutine(BurstFire());
                 }
                 else
                 {
@@ -159,10 +187,19 @@ public class Gun : MonoBehaviour
         break;
         
         case 4:
-        //currentBullet++;
-                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                //currentBullet++;
+                if (Loaded == "Blue Bullet")
                 {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    LAZERbeam();
+                }
+                else if (Loaded == "Green Bullet")
+                {
+                    FireShotgun();
+
+                }
+                else if (Loaded == "Purple Bullet")
+                {
+                    StartCoroutine(BurstFire());
                 }
                 else
                 {
@@ -177,10 +214,19 @@ public class Gun : MonoBehaviour
         break;
         
         case 5:
-        //currentBullet++;
-                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                //currentBullet++;
+                if (Loaded == "Blue Bullet")
                 {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    LAZERbeam();
+                }
+                else if (Loaded == "Green Bullet")
+                {
+                    FireShotgun();
+
+                }
+                else if(Loaded == "Purple Bullet")
+                {
+                    StartCoroutine(BurstFire());
                 }
                 else
                 {
@@ -196,10 +242,19 @@ public class Gun : MonoBehaviour
         break;
 
         case 6:
-        //currentBullet++;
-                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                //currentBullet++;
+                if (Loaded == "Blue Bullet")
                 {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    LAZERbeam();
+                }
+                else if (Loaded == "Green Bullet")
+                {
+                    FireShotgun();
+
+                }
+                else if (Loaded == "Purple Bullet")
+                {
+                    StartCoroutine(BurstFire());
                 }
                 else
                 {
@@ -246,16 +301,50 @@ public class Gun : MonoBehaviour
     {
         
         yield return new WaitForSeconds(0.5f);
-        if (Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+        if (Loaded == "Blue Bullet")
         {
-            bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+            LAZERbeam();
+        }
+        else if (Loaded == "Green Bullet")
+        {
+            FireShotgun();
+
+        }
+        else if (Loaded == "Purple Bullet")
+        {
+            StartCoroutine(BurstFire());
         }
         else
         {
             bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
             bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
         }
-        
+
     }
+    private void LAZERbeam()
+    {
+        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+    }
+
+    private void FireShotgun()
+    {
+        for (int i = 0; i < ShotgunBarrel.Length; i++)
+        {
+            bulletInstance = Instantiate(Bullet[currentBullet], ShotgunBarrel[i].position, ShotgunBarrel[i].rotation);
+            bulletInstance.GetComponent<Rigidbody>().AddForce(ShotgunBarrel[i].transform.forward * bulletSpeed);
+        }
+    }
+    public IEnumerator BurstFire()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+            bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+            yield return new WaitForSeconds(0.1f);
+        }
+       
+    }
+
+    
     
 }
