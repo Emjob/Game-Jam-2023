@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy_Brush : MonoBehaviour
+public class Enemy_Crayon : MonoBehaviour
 {
     NavMeshAgent enemy;
     GameObject player;
     public GameObject paint;
     private float nextShotTime;
     public float timeBetweenShots;
-    public GameObject BulletPlace;
 
-    [SerializeField] private float awayDistance; 
+    [SerializeField] private float awayDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +23,19 @@ public class Enemy_Brush : MonoBehaviour
     void Update()
     {
         Move();
-        if (Time.time > nextShotTime)
+        if (awayDistance == enemy.stoppingDistance)
         {
-            Instantiate(paint, BulletPlace.transform.position, BulletPlace.transform.rotation);
-            nextShotTime = Time.time + timeBetweenShots;
+            AttackDash();
         }
-        Debug.Log(gameObject.name + gameObject.GetComponent<Rigidbody>().velocity);
     }
     void Move()
     {
         enemy.SetDestination(player.transform.position);
         enemy.stoppingDistance = awayDistance;
+    }
+
+    void AttackDash()
+    {
+       
     }
 }

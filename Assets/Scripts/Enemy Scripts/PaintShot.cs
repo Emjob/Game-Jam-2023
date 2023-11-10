@@ -15,13 +15,18 @@ public class PaintShot : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         //Player
-        Destroy(gameObject);
+        if (collision.tag != "Enemy")
+        {
+           Destroy(gameObject);
+
+        }
+        
     }
     private void OnEnable()
     {
