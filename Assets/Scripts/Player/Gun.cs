@@ -67,20 +67,7 @@ public class Gun : MonoBehaviour
             chamberIndex--;
             listUpdates();
         }
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Start");
-           
-            hits = Physics.RaycastAll(transform.position, transform.forward, 10000.0f);
-
-            for (int i = 0; i < hits.Length; i++)
-            {
-                Debug.Log("For");
-                RaycastHit hit = hits[i];
-                hit.transform.GetComponent<Enemy_Health>().takeDamage(Damage);
-            }
-            Debug.Log("End");
-        }
+        
         if (Input.GetMouseButtonDown(0) && !cantShoot)
         { 
             if(currentBullet<6)

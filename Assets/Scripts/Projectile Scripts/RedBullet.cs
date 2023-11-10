@@ -21,14 +21,20 @@ public class RedBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && other.tag != "Explosion")
+        if (other.tag != "Player" && other.tag != "Explosion" && other.tag != "Enemy")
         {
             Destroy(gameObject);
+
+        }
+        if (other.tag == "Enemy")
+        {
             other.GetComponent<Enemy_Health>().takeDamage(Damage);
         }
-        
-        GameObject Explode = Instantiate(Explosion,this.transform.position,Quaternion.identity);
-        Explode.GetComponent<Explode>().enabled = true;
-        Destroy(this.gameObject);
+        if (other.tag != "Explosion")
+        {
+            GameObject Explode = Instantiate(Explosion, this.transform.position, Quaternion.identity);
+            Explode.GetComponent<Explode>().enabled = true;
+        }
+
     }
 }

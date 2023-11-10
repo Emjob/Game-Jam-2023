@@ -11,12 +11,6 @@ public class Enemy_Health : MonoBehaviour
 
     [SerializeField]private float distanceToPlayer;
 
-    private GameObject[] Enemies;
-    
-    private float[] distanceToEnemy;
-
-    public float closestEnemy;
-
     Character_Movement Ability;
     GameObject player;
     // Start is called before the first frame update
@@ -24,7 +18,6 @@ public class Enemy_Health : MonoBehaviour
 
     void Start()
     {
-        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
         player = GameObject.FindWithTag("Player");
 

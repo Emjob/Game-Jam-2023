@@ -7,14 +7,16 @@ using static UnityEditor.PlayerSettings;
 public class YellowBullet : MonoBehaviour
 {
     public int Damage;
+    [SerializeField] private int bounceSpeed;
     [SerializeField] private int bounceCounter;
+    private bool StartBounce;
 
     
     [SerializeField]private float[] distanceToEnemy;
 
     private Rigidbody rb;
 
-    private GameObject a;
+   [SerializeField] private GameObject a;
 
     [SerializeField]private GameObject[] enemies;
 
@@ -32,7 +34,11 @@ public class YellowBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(StartBounce)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, a.transform.position, bounceSpeed * Time.deltaTime);
 
+        }
 
         if(Input.GetKeyDown(KeyCode.L))
         {
@@ -51,9 +57,9 @@ public class YellowBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player" && other.tag != "Explosion")
+        if (other.tag != "Player" && other.tag != "Explosion" && other.tag != "Enemy")
         {
-            
+            Destroy(gameObject);
             
         }
         if(other.tag == "Enemy")
@@ -66,7 +72,7 @@ public class YellowBullet : MonoBehaviour
     private void Bounce()
     {
         float closestDistance = Mathf.Infinity, secondClosest = Mathf.Infinity;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Bounce");
         distanceToEnemy = new float[enemies.Length];
         closestIndex = 0;
         secondIndex = 0;
@@ -89,7 +95,8 @@ public class YellowBullet : MonoBehaviour
         Debug.Log("Closest: " + enemies[closestIndex].name);
         Debug.Log("Second Closest: " + enemies[secondIndex].name);
         a = enemies[secondIndex];
-        rb.AddForce(a.transform.position.x, 0 ,a.transform.position.z);
+        rb.velocity = Vector3.zero;
+        StartBounce = true;
         bounceCounter++;
     }
 }

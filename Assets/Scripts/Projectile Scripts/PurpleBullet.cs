@@ -19,10 +19,14 @@ public class PurpleBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
-        if (other.tag != "Player" && other.tag != "Explosion")
+
+        if (other.tag != "Player" && other.tag != "Explosion" && other.tag != "Enemy")
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+
+        }
+        if (other.tag == "Enemy")
+        {
             other.GetComponent<Enemy_Health>().takeDamage(Damage);
         }
     }
