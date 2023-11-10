@@ -2484,6 +2484,89 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &789671902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 789671903}
+  - component: {fileID: 789671906}
+  - component: {fileID: 789671905}
+  m_Layer: 0
+  m_Name: ShotgunEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &789671903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789671902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726238578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &789671905
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789671902}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &789671906
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789671902}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &869092745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,7 +3124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 904691350}
   - component: {fileID: 904691351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3131,7 +3214,7 @@ GameObject:
   - component: {fileID: 911542676}
   - component: {fileID: 911542675}
   - component: {fileID: 911542674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 'Enemy(earaser) '
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3152,6 +3235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerHeal: 0
+  knockbackForce: 0
   distanceToPlayer: 0
 --- !u!114 &911542675
 MonoBehaviour:
@@ -3320,7 +3404,7 @@ GameObject:
   - component: {fileID: 1024751684}
   - component: {fileID: 1024751683}
   - component: {fileID: 1024751682}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy(earaser)  (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3341,6 +3425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerHeal: 0
+  knockbackForce: 0
   distanceToPlayer: 0
 --- !u!114 &1024751683
 MonoBehaviour:
@@ -3486,7 +3571,7 @@ Transform:
   m_GameObject: {fileID: 1024751681}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.22, y: 0.45, z: -3.12}
+  m_LocalPosition: {x: 0.115, y: 0.45, z: -3.12}
   m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5035,15 +5120,16 @@ MonoBehaviour:
   Bullet:
   - {fileID: 7910763430103074757, guid: 9693888ed7e54f44bba43f520d64cc8f, type: 3}
   - {fileID: 3674726300431091144, guid: a26d4344833599147a38274670f233bc, type: 3}
-  - {fileID: 7486457952015542953, guid: 2de10c781f9083a438c7130367007437, type: 3}
   - {fileID: 3583921726408473260, guid: 5b37007bb6ed581488dc3145ba501747, type: 3}
   - {fileID: 7521374951466670673, guid: 9542887fab74f7b428e436e0ae8c8152, type: 3}
   - {fileID: 7366909859907773705, guid: a8bb12a8dff3e7248860036eeaaa2d88, type: 3}
+  - {fileID: 7486457952015542953, guid: 2de10c781f9083a438c7130367007437, type: 3}
   BulletNames: []
   normalBullet: {fileID: 1125760154349548749, guid: 602e5758ee7bb6c4bbab33071f619187, type: 3}
   GunEnd: {fileID: 1597539912}
+  Damage: 50
   bulletSpeed: 1000
-  shotCooldown: 0
+  shotCooldown: 1
   Loaded: 
   currentBullet: 0
   Ammo: 0
@@ -5063,6 +5149,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1597539912}
+  - {fileID: 789671903}
   m_Father: {fileID: 1836717833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1726238579
@@ -5581,7 +5668,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -6257,7 +6344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2060754624}
   - component: {fileID: 2060754625}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

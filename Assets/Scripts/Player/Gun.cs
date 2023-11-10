@@ -12,8 +12,12 @@ public class Gun : MonoBehaviour
     public List<string> BulletNames = new List<string>(6);
     [SerializeField] private GameObject normalBullet;
 
-    public Transform GunEnd;
+    [SerializeField]private Transform GunEnd;
     private GameObject bulletInstance;
+    LayerMask Enemies;
+
+    public int Damage;
+    public RaycastHit[] hits;
 
     public int bulletSpeed;
     [SerializeField] private int shotCooldown;
@@ -62,24 +66,55 @@ public class Gun : MonoBehaviour
             chamberIndex--;
             listUpdates();
         }
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Start");
+           
+            hits = Physics.RaycastAll(transform.position, transform.forward, 10000.0f);
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                Debug.Log("For");
+                RaycastHit hit = hits[i];
+                hit.transform.GetComponent<Enemy_Health>().takeDamage(Damage);
+            }
+            Debug.Log("End");
+        }
         if (Input.GetMouseButtonDown(0) && !cantShoot)
         { 
+            if(currentBullet<6)
+            {
+                currentBullet++;
+            }
+            if(currentBullet == 6)
+            {
+                currentBullet = 0;
+            }
+            Loaded = Bullet[currentBullet].name;
             Shoot(Ammo);
         }
         
-        Loaded = Bullet[currentBullet].name;
+        
      //   Debug.Log(GunEnd.transform.forward * 1000);
     }
+
+
     private void Shoot(int Round)
     {
       switch(Ammo)
       {
         case 1:
-        currentBullet = 0;
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
- 
-        Debug.Log("RED");
+        //currentBullet = 0;
+                if (Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                }
+                else
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                }
+                Debug.Log("RED");
                 if (Ability.doubleShot)
                 {
                     StartCoroutine(DoubleShot());
@@ -88,9 +123,16 @@ public class Gun : MonoBehaviour
         break;
                 
         case 2:
-        currentBullet++;
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+        //currentBullet++;
+                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                }
+                else
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                }
                 if (Ability.doubleShot){
                     StartCoroutine(DoubleShot());
                 }
@@ -99,10 +141,17 @@ public class Gun : MonoBehaviour
                 break;
         
         case 3:
-        currentBullet++;
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                if(Ability.doubleShot){
+        //currentBullet++;
+                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                }
+                else
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                }
+                if (Ability.doubleShot){
                     StartCoroutine(DoubleShot());
                 }
         Debug.Log("GREEN");
@@ -110,10 +159,17 @@ public class Gun : MonoBehaviour
         break;
         
         case 4:
-        currentBullet++;
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                if(Ability.doubleShot){
+        //currentBullet++;
+                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                }
+                else
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                }
+                if (Ability.doubleShot){
                     StartCoroutine(DoubleShot());
                 }
         Debug.Log("BROWN");
@@ -121,9 +177,16 @@ public class Gun : MonoBehaviour
         break;
         
         case 5:
-        currentBullet++;
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+        //currentBullet++;
+                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                }
+                else
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                }
                 if (Ability.doubleShot)
                 {
                     StartCoroutine(DoubleShot());
@@ -133,9 +196,16 @@ public class Gun : MonoBehaviour
         break;
 
         case 6:
-        currentBullet++;
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+        //currentBullet++;
+                if(Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                }
+                else
+                {
+                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+                }
                 if (Ability.doubleShot)
                 {
                     StartCoroutine(DoubleShot());
@@ -176,8 +246,16 @@ public class Gun : MonoBehaviour
     {
         
         yield return new WaitForSeconds(0.5f);
-        bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-        bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+        if (Loaded == "Green Bullet" || Loaded == "Blue Bullet")
+        {
+            bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+        }
+        else
+        {
+            bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+            bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+        }
+        
     }
     
 }

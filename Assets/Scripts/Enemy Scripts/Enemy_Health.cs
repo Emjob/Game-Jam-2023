@@ -7,6 +7,8 @@ public class Enemy_Health : MonoBehaviour
     public int health;
     public int playerHeal;
 
+    [SerializeField] private float knockbackForce;
+
     [SerializeField]private float distanceToPlayer;
 
     Character_Movement Ability;
@@ -54,7 +56,7 @@ public class Enemy_Health : MonoBehaviour
             float b = player.transform.position.z - transform.position.z;
             float knockVelocityX = transform.position.x - a;
             float knockVelocityZ = transform.position.z - b;
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(knockVelocityX * 0.5f,0,knockVelocityZ * 0.5f);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(knockVelocityX * knockbackForce,0,knockVelocityZ * knockbackForce);
             Debug.Log("Knock Register");
         }
     }
