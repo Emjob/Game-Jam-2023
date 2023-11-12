@@ -36,12 +36,11 @@ public class RoomManager : MonoBehaviour
 
     }
 
-    
     void Spawn()
     {
       
 
-        for (int i = 0; i < SpawnPoints.Length ; i++)
+        for (int i = 0; i < SpawnPoints.Length; i++)
         {
             Instantiate(SpawnPoints[i].GetComponent<EnemySpawns>().enemies[round], SpawnPoints[i].transform.position, Quaternion.identity);
         }
