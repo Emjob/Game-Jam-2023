@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character_Movement : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Character_Movement : MonoBehaviour
     public float playerSpeed;
     private float horizontalInput;
     private float verticalInput;
+
+    [SerializeField] private Image dashImage;
 
     [SerializeField]private GameObject[] Enemies;
 
@@ -40,10 +43,23 @@ public class Character_Movement : MonoBehaviour
     {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         
+
+
+        if(canDash == false )
+        {
+            dashImage.enabled = false;
+        }
+
         if (isDashing)
         {
+            dashImage.enabled = false;
             return;
         }
+        else
+        {
+            dashImage.enabled =true;
+        }
+        
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -112,7 +128,7 @@ public class Character_Movement : MonoBehaviour
         {
             doubleShot = false;
         }
-        if (Bullet.BulletNames.Contains("Brown Bullet"))
+        if (Bullet.BulletNames.Contains("Orange Bullet"))
         {
             canKnock = true;
         }
