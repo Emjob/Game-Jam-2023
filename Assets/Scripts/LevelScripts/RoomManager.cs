@@ -11,7 +11,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private int maxRounds;
     [SerializeField] private GameObject Door;
     private bool begun;
-    [SerializeField] private GameObject[] Enemies;
+    [SerializeField] private GameObject[] Enemies = new GameObject[2];
 
 
     void Start()

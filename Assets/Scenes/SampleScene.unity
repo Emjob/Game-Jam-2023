@@ -668,6 +668,9 @@ MonoBehaviour:
   progress: 0
   maxRounds: 6
   Door: {fileID: 0}
+  Enemies:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!43 &522784688
 Mesh:
   m_ObjectHideFlags: 0
