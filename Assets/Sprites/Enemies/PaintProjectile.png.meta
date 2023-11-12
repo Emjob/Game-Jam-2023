@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b69182680141a9468873a00c0243d37
+guid: 268f7cf94d00a404db8b90484fd4223e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,85 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: eraserBOSSfrontwalking_0
+      name: PaintProjectile_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 3
-        width: 70
-        height: 118
+        x: 5
+        y: 0
+        width: 22
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdbb2ced4237662408aec2c5928ba3ab
-      internalID: -506891354
+      spriteID: 0e9a2a0e008c63b4289f7398e873f7e6
+      internalID: 298524532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eraserBOSSfrontwalking_1
+      name: PaintProjectile_2
       rect:
         serializedVersion: 2
-        x: 157
-        y: 2
-        width: 70
-        height: 119
+        x: 37
+        y: 0
+        width: 22
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0a33512b94bef045848210cff45632b
-      internalID: -1985982785
+      spriteID: 8d215247b3c30aa44905c17f53ee05a4
+      internalID: -339940126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eraserBOSSfrontwalking_2
+      name: PaintProjectile_4
       rect:
         serializedVersion: 2
-        x: 285
-        y: 2
-        width: 70
-        height: 119
+        x: 69
+        y: 0
+        width: 22
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8357d2e033fa34144975bf59d76d00a7
-      internalID: -836675006
+      spriteID: 850ec380c127b7844b49a6bd4997776c
+      internalID: -185113420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: eraserBOSSfrontwalking_3
+      name: PaintProjectile_6
       rect:
         serializedVersion: 2
-        x: 413
-        y: 2
-        width: 70
-        height: 119
+        x: 101
+        y: 0
+        width: 22
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4aab0e335525834ba460daa6494492d
-      internalID: -533111229
+      spriteID: 6e913da9c352fd4418baa193c2c3c87d
+      internalID: 877429059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PaintProjectile_8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d302046a0878248b9bba27220ae67d
+      internalID: -79102321
       vertices: []
       indices: 
       edges: []
@@ -196,7 +217,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 03b69ce3d3bca204ea35657926757cf7
+    spriteID: 6ccf86a54b08be949b08ab8e7da75f1d
     internalID: 0
     vertices: []
     indices: 
@@ -204,10 +225,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      eraserBOSSfrontwalking_0: -506891354
-      eraserBOSSfrontwalking_1: -1985982785
-      eraserBOSSfrontwalking_2: -836675006
-      eraserBOSSfrontwalking_3: -533111229
+      PaintProjectile_0: 298524532
+      PaintProjectile_1: -1209373167
+      PaintProjectile_2: -339940126
+      PaintProjectile_3: -1912537927
+      PaintProjectile_4: -185113420
+      PaintProjectile_5: -63348126
+      PaintProjectile_6: 877429059
+      PaintProjectile_7: 732242931
+      PaintProjectile_8: -79102321
+      PaintProjectile_9: -1395359071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

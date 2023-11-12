@@ -19,10 +19,7 @@ public class PaintBucketBoss : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-       
-        if (Time.time > nextShotTime)
+    void Update(        if (Time.time > nextShotTime)
         {
             Instantiate(paint, BulletPlace.transform.position, BulletPlace.transform.rotation);
             nextShotTime = Time.time + timeBetweenShots;
