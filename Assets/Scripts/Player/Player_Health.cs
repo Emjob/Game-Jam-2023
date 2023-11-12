@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class Player_Health : MonoBehaviour
     public int maxHealth;
     [SerializeField]private int currentHealth;
     public int shield;
+
+   [SerializeField]private Image[] hearts;
+
+    public Sprite full;
+    public Sprite empty;
+
     void Start()
     {
       currentHealth = maxHealth;
@@ -17,6 +24,25 @@ public class Player_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for(int i = 0; i < hearts.Length; i++)
+        {
+            if (i < currentHealth)
+            {
+                hearts[i].sprite = full;
+            }
+            else
+            {
+                hearts[i].sprite = empty;
+            }
+            if (i < maxHealth)
+            {
+                hearts[i].enabled = true;
+            } else
+            {
+                hearts[i].enabled &= false;
+            }
+        }
+
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if(shield > 0)
         {
