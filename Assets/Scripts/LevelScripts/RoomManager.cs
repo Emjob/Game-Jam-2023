@@ -41,7 +41,7 @@ public class RoomManager : MonoBehaviour
     {
       
 
-        for (int i = 0; i < SpawnPoints.Length - 1; i++)
+        for (int i = 0; i < SpawnPoints.Length ; i++)
         {
             Instantiate(SpawnPoints[i].GetComponent<EnemySpawns>().enemies[round], SpawnPoints[i].transform.position, Quaternion.identity);
         }

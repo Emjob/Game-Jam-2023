@@ -665,8 +665,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 632177935}
+  - {fileID: 2081146643}
   progress: 0
-  maxRounds: 6
+  maxRounds: 1
   Door: {fileID: 0}
 --- !u!114 &212817400
 MonoBehaviour:
@@ -675,7 +676,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212817396}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46aada154e806554f8aed8a675d3523c, type: 3}
   m_Name: 
@@ -683,7 +684,7 @@ MonoBehaviour:
   SpawnPoints:
   - {fileID: 2081146643}
   progress: 0
-  maxRounds: 6
+  maxRounds: 1
   Door: {fileID: 0}
 --- !u!43 &522784688
 Mesh:
