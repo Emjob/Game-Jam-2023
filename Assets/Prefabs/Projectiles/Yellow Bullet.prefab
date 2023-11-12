@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a8bdba10a90dd4795a6078827692a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 2
   bounceSpeed: 10
   bounceCounter: 0
   color: Yellow

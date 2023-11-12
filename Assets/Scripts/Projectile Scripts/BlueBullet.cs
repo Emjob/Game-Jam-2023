@@ -56,7 +56,11 @@ public class BlueBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-       
+        if (other.tag == "Enemy")
+        {
+            //startHome = false;
+            other.GetComponent<Enemy_Health>().takeDamage(Damage);
+        }
     }
     
 }

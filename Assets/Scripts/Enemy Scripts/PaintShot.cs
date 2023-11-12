@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class PaintShot : MonoBehaviour
 {
+    GameObject player;
     [SerializeField] private float speed = 30f;
-   
+    public int Damage;
+    private bool noHit;
+
     IEnumerator DestroyBulletAfterTime()
     {
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
+    }
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        
     }
 
     void Update()
@@ -18,15 +26,15 @@ public class PaintShot : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        //Player
-        if (collision.tag != "Enemy")
+        if (other.tag == "Player" && !noHit)
         {
-           Destroy(gameObject);
-
+            player.GetComponent<Player_Health>().takeDamage(Damage);
+            noHit = true;
         }
-        
+
+
     }
     private void OnEnable()
     {

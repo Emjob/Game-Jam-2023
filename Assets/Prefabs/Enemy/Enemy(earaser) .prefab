@@ -309,10 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332f4f74bbbb974893a323a7c5dd3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 15
   playerHeal: 1
+  gun: {fileID: 0}
   knockbackForce: 20
   distanceToPlayer: 0
+  isBoss: 0
 --- !u!114 &4164428766428031545
 MonoBehaviour:
   m_ObjectHideFlags: 0

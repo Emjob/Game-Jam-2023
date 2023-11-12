@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0288630c0647c3e46b28062fb23ed52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 2
   bulletSpeed: 10
   distanceToEnemy: []
   closestIndex: 0

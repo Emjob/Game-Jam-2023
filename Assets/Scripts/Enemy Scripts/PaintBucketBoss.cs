@@ -11,6 +11,7 @@ public class PaintBucketBoss : MonoBehaviour
     private float nextShotTime;
     public float timeBetweenShots;
     public GameObject BulletPlace;
+    public Gun gun;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,10 @@ public class PaintBucketBoss : MonoBehaviour
             Instantiate(paint, BulletPlace.transform.position, BulletPlace.transform.rotation);
             nextShotTime = Time.time + timeBetweenShots;
         }
+        if (GetComponent<Enemy_Health>().health <= 0)
+        {
+            gun.RemoveBullet();
+        }
     }
+
 }

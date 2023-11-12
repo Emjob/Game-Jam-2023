@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51da26114d68d704c81949169fd9faac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 2
   color: Purple
   bulletSpeed: 20
   distanceToEnemy: []

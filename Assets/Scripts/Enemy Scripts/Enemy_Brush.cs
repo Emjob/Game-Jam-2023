@@ -11,6 +11,7 @@ public class Enemy_Brush : MonoBehaviour
     private float nextShotTime;
     public float timeBetweenShots;
     public GameObject BulletPlace;
+   
 
     [SerializeField] private float awayDistance; 
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class Enemy_Brush : MonoBehaviour
         }
         //Debug.Log(gameObject.name + gameObject.GetComponent<Rigidbody>().velocity);
     }
+    
     void Move()
     {
         enemy.SetDestination(player.transform.position);

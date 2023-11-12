@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dff403d5d3ba564a851313167823bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paint: {fileID: 3674726300431091144, guid: e87aed409c2929745babe4d8b4e56595, type: 3}
+  paint: {fileID: 3674726300431091144, guid: cd7a65e19db9d9543847fe96f77410a2, type: 3}
   timeBetweenShots: 3
   BulletPlace: {fileID: 7377474443365208232}
   awayDistance: 5
@@ -295,10 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332f4f74bbbb974893a323a7c5dd3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 10
   playerHeal: 1
+  gun: {fileID: 0}
   knockbackForce: 20
   distanceToPlayer: 0
+  isBoss: 0
 --- !u!1 &3565896316648699963
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,3 +377,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  pTransform: {fileID: 0}

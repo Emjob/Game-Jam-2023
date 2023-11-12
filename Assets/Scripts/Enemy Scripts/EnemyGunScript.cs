@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class EnemyGunScript : MonoBehaviour
 {
-    public Transform player;
-    
+    public GameObject player;
+    public Transform pTransform;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
+        pTransform = player.transform;
+        transform.LookAt(pTransform);
+       
     }
 }

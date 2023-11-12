@@ -17,7 +17,8 @@ public class EaraserBossBig : MonoBehaviour
     public GameObject Earaser;
     public GameObject SpawnPlace, SpawnPlace2;
     private bool spawenedFuckers;
-
+    public int Damage;
+    public Gun gun;
     void Start()
     {
         enemy = GetComponent<NavMeshAgent>();
@@ -44,6 +45,10 @@ public class EaraserBossBig : MonoBehaviour
             enemy.speed = moveSpeed;
             enemy.acceleration = accel;
         }
+        if (GetComponent<Enemy_Health>().health <= 0)
+        {
+            gun.RemoveBullet();
+        }
     }
     void Move()
     {
@@ -68,6 +73,15 @@ public class EaraserBossBig : MonoBehaviour
                 StartCoroutine(SpawnTimer());
             }
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player.GetComponent<Player_Health>().takeDamage(Damage);
+        }
+
+
     }
 
     IEnumerator FlopAttackHandle()

@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 5180334051858229537}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 0.6, z: 2.31}
+  m_LocalPosition: {x: 0.135, y: 0.454, z: -1.329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  pTransform: {fileID: 0}
 --- !u!1 &5684230400318031164
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3e33557f363eb44b64bfed952bf25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paint: {fileID: 3674726300431091144, guid: e87aed409c2929745babe4d8b4e56595, type: 3}
+  paint: {fileID: 3674726300431091144, guid: fb51e876f5e376b48aea336b2cacec53, type: 3}
   timeBetweenShots: 3
   BulletPlace: {fileID: 5180334051858229537}
+  gun: {fileID: 0}
