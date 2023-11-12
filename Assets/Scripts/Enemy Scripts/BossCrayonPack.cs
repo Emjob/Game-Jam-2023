@@ -9,11 +9,15 @@ public class BossCrayonPack : MonoBehaviour
     public GameObject Crayons;
     public GameObject SpawnPlace;
     public float SpawnTimer;
+    public Gun gun;
+
+
 
 
     private void Start()
     {
         CanSpawn = true;
+        gun = GameObject.FindWithTag("Gun").GetComponent<Gun>();
     }
     // Update is called once per frame
     void Update()
@@ -24,7 +28,12 @@ public class BossCrayonPack : MonoBehaviour
             
             StartCoroutine(SpawnCD());
         }
+        if (GetComponent<Enemy_Health>().health <= 0)
+        {
+           gun.RemoveBullet();
+        }
     }
+
     IEnumerator SpawnCD()
     {
         CanSpawn = false;

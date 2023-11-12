@@ -6,11 +6,12 @@ public class Enemy_Health : MonoBehaviour
 {
     public int health;
     public int playerHeal;
+    public Gun gun;
 
     [SerializeField] private float knockbackForce;
 
     [SerializeField]private float distanceToPlayer;
-
+    public bool isBoss;
     Character_Movement Ability;
     GameObject player;
     // Start is called before the first frame update
@@ -20,8 +21,9 @@ public class Enemy_Health : MonoBehaviour
     {
         Ability = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
         player = GameObject.FindWithTag("Player");
+        gun = GameObject.FindWithTag("Gun").GetComponent<Gun>();
 
-        
+
     }
 
     // Update is called once per frame
@@ -35,6 +37,11 @@ public class Enemy_Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            if (isBoss)
+            {
+                gun.RemoveBullet();
+            }
+
             if (Ability.healOnKill)
             {
                 GameObject.FindWithTag("Player").GetComponent<Player_Health>().Heal(playerHeal);

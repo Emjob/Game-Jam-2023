@@ -13,6 +13,8 @@ public class Enemy_Crayon : MonoBehaviour
     private bool canDash;
     private bool isDashing;
     public float DashDuration;
+    Player_Health health;
+    public int Damage;
 
 
 
@@ -64,6 +66,15 @@ public class Enemy_Crayon : MonoBehaviour
         }
 
              
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player.GetComponent<Player_Health>().takeDamage(Damage);
+        }
+        
+        
     }
     IEnumerator DashMovementHandler()
     {

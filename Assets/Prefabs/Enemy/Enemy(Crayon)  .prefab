@@ -136,7 +136,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -203,9 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332f4f74bbbb974893a323a7c5dd3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  playerHeal: 0
-  knockbackForce: 0
+  health: 7
+  playerHeal: 1
+  knockbackForce: 20
   distanceToPlayer: 0
 --- !u!114 &8408315520530780269
 MonoBehaviour:
@@ -222,6 +222,7 @@ MonoBehaviour:
   moveSpeed: 3
   accel: 6
   DashDuration: 1
+  Damage: 1
   awayDistance: 5
 --- !u!1 &5879710170165092625
 GameObject:

@@ -264,10 +264,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332f4f74bbbb974893a323a7c5dd3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  playerHeal: 0
+  health: 70
+  playerHeal: 1
+  gun: {fileID: 0}
   knockbackForce: 0
   distanceToPlayer: 0
+  isBoss: 1
 --- !u!114 &7847121769644542402
 MonoBehaviour:
   m_ObjectHideFlags: 0

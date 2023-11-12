@@ -295,9 +295,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6332f4f74bbbb974893a323a7c5dd3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  playerHeal: 0
-  knockbackForce: 0
+  health: 8
+  playerHeal: 1
+  knockbackForce: 20
   distanceToPlayer: 0
 --- !u!1 &3565896316648699963
 GameObject:

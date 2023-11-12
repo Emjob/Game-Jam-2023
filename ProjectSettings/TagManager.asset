@@ -12,6 +12,7 @@ TagManager:
   - Color
   - GunChamber
   - first
+  - Gun
   layers:
   - Default
   - TransparentFX
