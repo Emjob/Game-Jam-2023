@@ -168,6 +168,7 @@ public class Gun : MonoBehaviour
     }
     public IEnumerator NextBullet()
     {
+        Ability.homing = false;
         cantShoot = true;
         yield return new WaitForSeconds(shotCooldown);
         m++;
