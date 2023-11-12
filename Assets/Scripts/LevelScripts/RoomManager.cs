@@ -26,10 +26,12 @@ public class RoomManager : MonoBehaviour
             for(int i = 0; i< Enemies.Length;  i++) 
             {
                 Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (Enemies[i] != null )
-                    {
-                        round++;
-                    }
+                if (Enemies.Length == 0 )
+                {
+                    round++;
+                    Spawn();
+                    Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                }
             }
     }
 
