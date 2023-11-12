@@ -25,8 +25,8 @@ public class RoomManager : MonoBehaviour
 
             for(int i = 0; i< Enemies.Length;  i++) 
             {
-                
-                    if(Enemies[i] != null )
+                Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (Enemies[i] != null )
                     {
                         round++;
                     }
