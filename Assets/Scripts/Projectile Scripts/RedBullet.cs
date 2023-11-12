@@ -8,6 +8,8 @@ public class RedBullet : MonoBehaviour
     private GameObject Explosion;
     private bool startHome;
 
+    public string color = "Red";
+
     Character_Movement Abilities;
 
     // Start is called before the first frame update

@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GreenBullet : MonoBehaviour
 {
     public int Damage;
     private bool startHome;
+    public bool Home;
+
+    public string color = "Green";
 
     Character_Movement Abilities;
 
@@ -15,7 +19,22 @@ public class GreenBullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         Abilities = GameObject.FindWithTag("Player").GetComponent<Character_Movement>();
-        if (Abilities.homing)
+        if(Abilities.homing)
+        {
+            Home = true;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log(a);
+        if (startHome)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, a.transform.position, bulletSpeed * Time.deltaTime);
+        }
+
+        if (Home && a == null)
         {
             float closestDistance = Mathf.Infinity;
             enemies = GameObject.FindGameObjectsWithTag("Bounce");
@@ -30,19 +49,10 @@ public class GreenBullet : MonoBehaviour
                     closestDistance = distanceToEnemy[i];
                     closestIndex = i; // remember which one in the array is closest
                 }
-                
+
             }
             a = enemies[closestIndex];
             StartCoroutine(Homing());
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (startHome)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, a.transform.position, bulletSpeed * Time.deltaTime);
         }
     }
 

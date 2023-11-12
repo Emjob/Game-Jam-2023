@@ -9,6 +9,9 @@ TagManager:
   - Explosion
   - Enemy
   - Bounce
+  - Color
+  - GunChamber
+  - first
   layers:
   - Default
   - TransparentFX

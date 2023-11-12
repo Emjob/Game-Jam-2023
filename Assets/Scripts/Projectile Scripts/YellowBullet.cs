@@ -11,6 +11,8 @@ public class YellowBullet : MonoBehaviour
     [SerializeField] private int bounceCounter;
     private bool StartBounce;
 
+    public string color = "Yellow";
+
     [SerializeField] private int bulletSpeed;
 
     Character_Movement Abilities;

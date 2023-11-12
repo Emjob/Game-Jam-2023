@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PurpleBullet : MonoBehaviour
 {
     public int Damage;
 
     private bool startHome;
+
+    public string color = "Purple";
 
     Character_Movement Abilities;
     // Start is called before the first frame update
