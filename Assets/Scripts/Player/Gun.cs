@@ -81,10 +81,7 @@ public class Gun : MonoBehaviour
         }
 
 
-        if (m >= store.Count - 1)
-        {
-            Reload();
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -99,6 +96,7 @@ public class Gun : MonoBehaviour
             }
             if (currentBullet == 6)
             {
+                Reload();
                 currentBullet = 0;
             }
             Loaded = Bullet[currentBullet].name;
