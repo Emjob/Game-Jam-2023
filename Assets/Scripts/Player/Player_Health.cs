@@ -43,6 +43,11 @@ public class Player_Health : MonoBehaviour
             }
         }
 
+        if (currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if(shield > 0)
         {
