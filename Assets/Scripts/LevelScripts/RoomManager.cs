@@ -11,6 +11,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private int maxRounds;
     [SerializeField] private GameObject Door;
     private bool begun;
+    [SerializeField] private GameObject[] Enemies;
 
 
     void Start()
@@ -21,36 +22,27 @@ public class RoomManager : MonoBehaviour
 
     void Update()
     {
-        if (round > maxRounds)
-        {
-            if (progress)
-            {
-                round++;
-                progress = false;
-            }
-        }
-        else if(round == maxRounds) 
-        {
-            NextRoom();
-        }
 
+            for(int i = 0; i< Enemies.Length;  i++) 
+            {
+                
+                    if(Enemies[i] != null )
+                    {
+                        round++;
+                    }
+            }
     }
 
     void Spawn()
     {
-      
-
         for (int i = 0; i < SpawnPoints.Length; i++)
         {
             Instantiate(SpawnPoints[i].GetComponent<EnemySpawns>().enemies[round], SpawnPoints[i].transform.position, Quaternion.identity);
         }
 
         Debug.Log(round);
-
+    
     }
 
-    void NextRoom()
-    {
-        Door.SetActive(false);   
-    }
+
 }
