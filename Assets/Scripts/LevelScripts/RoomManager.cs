@@ -36,7 +36,7 @@ public class RoomManager : MonoBehaviour
 
     }
 
-    }
+    
     void Spawn()
     {
       
