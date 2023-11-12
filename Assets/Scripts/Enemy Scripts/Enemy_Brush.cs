@@ -23,17 +23,33 @@ public class Enemy_Brush : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance > awayDistance)
+        {
+            Move();
+        }
+
+        else if (distance < awayDistance)
+        {
+            MoveAway();
+        }
+
         if (Time.time > nextShotTime)
         {
             Instantiate(paint, BulletPlace.transform.position, BulletPlace.transform.rotation);
             nextShotTime = Time.time + timeBetweenShots;
         }
-        Debug.Log(gameObject.name + gameObject.GetComponent<Rigidbody>().velocity);
+        //Debug.Log(gameObject.name + gameObject.GetComponent<Rigidbody>().velocity);
     }
     void Move()
     {
         enemy.SetDestination(player.transform.position);
         enemy.stoppingDistance = awayDistance;
+    }
+    void MoveAway()
+    {
+        Vector3 dirToPlayer = transform.position - player.transform.position;
+        Vector3 newPos = transform.position + dirToPlayer;
+        enemy.SetDestination(newPos);
     }
 }

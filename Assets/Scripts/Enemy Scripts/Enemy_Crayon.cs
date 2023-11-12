@@ -7,9 +7,14 @@ public class Enemy_Crayon : MonoBehaviour
 {
     NavMeshAgent enemy;
     GameObject player;
-    public GameObject paint;
-    private float nextShotTime;
-    public float timeBetweenShots;
+    public float moveSpeed;
+    public float accel;
+    private bool isDashHandler;
+    private bool canDash;
+    private bool isDashing;
+    public float DashDuration;
+
+
 
     [SerializeField] private float awayDistance;
     // Start is called before the first frame update
@@ -17,25 +22,60 @@ public class Enemy_Crayon : MonoBehaviour
     {
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
+        canDash = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-        if (awayDistance == enemy.stoppingDistance)
+        float distance = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distance <= awayDistance && canDash)
         {
-            AttackDash();
+           AttackDash();
+            enemy.speed = moveSpeed * 2;
+            enemy.acceleration = accel * 2;
         }
+        else 
+        {
+            Move();
+            enemy.speed = moveSpeed;
+            enemy.acceleration = accel;
+        }
+
     }
     void Move()
     {
         enemy.SetDestination(player.transform.position);
-        enemy.stoppingDistance = awayDistance;
     }
 
     void AttackDash()
     {
-       
+        if (!isDashHandler)
+        {
+            StartCoroutine(DashMovementHandler());
+
+        }
+        if (isDashing)
+        {
+            
+            enemy.SetDestination(enemy.transform.position);
+            
+        }
+
+             
+    }
+    IEnumerator DashMovementHandler()
+    {
+        isDashHandler = true;
+        canDash = true;
+        yield return new WaitForSeconds(1f);
+        isDashing = true;
+        yield return new WaitForSeconds(0.5f);
+        canDash = false;
+        isDashing = false;
+        yield return new WaitForSeconds(DashDuration);
+        canDash = true;
+        isDashHandler = false;
     }
 }
