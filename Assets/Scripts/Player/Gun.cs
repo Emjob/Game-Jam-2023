@@ -92,168 +92,40 @@ public class Gun : MonoBehaviour
       switch(Ammo)
       {
         case 1:
-        //currentBullet = 0;
-                if (Loaded == "Blue Bullet")
-                {
-                    LAZERbeam();
-                }
-                else if (Loaded == "Green Bullet")
-                {
-                    FireShotgun();
-
-                }
-                else if (Loaded == "Purple Bullet")
-                {
-                    StartCoroutine(BurstFire());
-                }
-                else
-                {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                }
+                //currentBullet = 0;
+                FireBullet();
                 Debug.Log("RED");
-                if (Ability.doubleShot)
-                {
-                    StartCoroutine(DoubleShot());
-                }
-                StartCoroutine(NextBullet());
+                
         break;
                 
         case 2:
                 //currentBullet++;
-                if (Loaded == "Blue Bullet")
-                {
-                    LAZERbeam();
-                }
-                else if (Loaded == "Green Bullet")
-                {
-                    FireShotgun();
-
-                }
-                else if (Loaded == "Purple Bullet")
-                {
-                    StartCoroutine(BurstFire());
-                }
-                else
-                {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                }
-                if (Ability.doubleShot){
-                    StartCoroutine(DoubleShot());
-                }
-        Debug.Log("BLUE");
-                StartCoroutine(NextBullet());
+                FireBullet();
+                Debug.Log("BLUE");
                 break;
         
         case 3:
                 //currentBullet++;
-                if (Loaded == "Blue Bullet")
-                {
-                    LAZERbeam();
-                }
-                else if (Loaded == "Green Bullet")
-                {
-                    FireShotgun();
+                FireBullet();
+                Debug.Log("GREEN");
 
-                }
-                else if (Loaded == "Purple Bullet")
-                {
-                    StartCoroutine(BurstFire());
-                }
-                else
-                {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                }
-                if (Ability.doubleShot){
-                    StartCoroutine(DoubleShot());
-                }
-        Debug.Log("GREEN");
-        StartCoroutine(NextBullet());
         break;
         
         case 4:
-                //currentBullet++;
-                if (Loaded == "Blue Bullet")
-                {
-                    LAZERbeam();
-                }
-                else if (Loaded == "Green Bullet")
-                {
-                    FireShotgun();
-
-                }
-                else if (Loaded == "Purple Bullet")
-                {
-                    StartCoroutine(BurstFire());
-                }
-                else
-                {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                }
-                if (Ability.doubleShot){
-                    StartCoroutine(DoubleShot());
-                }
-        Debug.Log("BROWN");
-        StartCoroutine(NextBullet());
+                FireBullet();
+                Debug.Log("BROWN");
         break;
         
         case 5:
-                //currentBullet++;
-                if (Loaded == "Blue Bullet")
-                {
-                    LAZERbeam();
-                }
-                else if (Loaded == "Green Bullet")
-                {
-                    FireShotgun();
-
-                }
-                else if(Loaded == "Purple Bullet")
-                {
-                    StartCoroutine(BurstFire());
-                }
-                else
-                {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                }
-                if (Ability.doubleShot)
-                {
-                    StartCoroutine(DoubleShot());
-                }
+                FireBullet();
                 Debug.Log("YELLOW");
-        StartCoroutine(NextBullet());
+        
         break;
 
         case 6:
                 //currentBullet++;
-                if (Loaded == "Blue Bullet")
-                {
-                    LAZERbeam();
-                }
-                else if (Loaded == "Green Bullet")
-                {
-                    FireShotgun();
-
-                }
-                else if (Loaded == "Purple Bullet")
-                {
-                    StartCoroutine(BurstFire());
-                }
-                else
-                {
-                    bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
-                    bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
-                }
-                if (Ability.doubleShot)
-                {
-                    StartCoroutine(DoubleShot());
-                }
-                Debug.Log("PURPLE");                                                                                                                                                                                                                                                                                                                                               
-        StartCoroutine(NextBullet());
+                FireBullet();
+                Debug.Log("PURPLE");
         break;
       } 
 
@@ -265,7 +137,7 @@ public class Gun : MonoBehaviour
         {
             BulletNames.Add(Bullet[i].name);
         }
-        
+        Ability.updateAbilities();
         
     }
     public IEnumerator NextBullet()
@@ -330,6 +202,34 @@ public class Gun : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
        
+    }
+
+    private void FireBullet()
+    {
+        if (Loaded == "Blue Bullet")
+        {
+            LAZERbeam();
+        }
+        else if (Loaded == "Green Bullet")
+        {
+            FireShotgun();
+
+        }
+        else if (Loaded == "Purple Bullet")
+        {
+            StartCoroutine(BurstFire());
+        }
+        else
+        {
+            bulletInstance = Instantiate(Bullet[currentBullet], GunEnd.position, GunEnd.rotation);
+            bulletInstance.GetComponent<Rigidbody>().AddForce(GunEnd.transform.forward * bulletSpeed);
+        }
+        if (Ability.doubleShot)
+        {
+            StartCoroutine(DoubleShot());
+        }
+        
+        StartCoroutine(NextBullet());
     }
 
     

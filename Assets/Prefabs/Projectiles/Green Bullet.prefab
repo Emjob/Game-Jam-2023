@@ -126,6 +126,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 20
+  bulletSpeed: 20
+  distanceToEnemy: []
+  closestIndex: 0
+  a: {fileID: 0}
+  enemies: []
 --- !u!135 &-4904437567590494645
 SphereCollider:
   m_ObjectHideFlags: 0

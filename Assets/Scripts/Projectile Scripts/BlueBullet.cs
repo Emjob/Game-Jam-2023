@@ -20,7 +20,8 @@ public class BlueBullet : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<Player_Health>().Shield(shielding);
         }
 
-
+       
+        
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, 100f, Enemies);
 
         // For each object that the raycast hits.
@@ -48,4 +49,5 @@ public class BlueBullet : MonoBehaviour
     {
        
     }
+    
 }

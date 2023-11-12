@@ -147,3 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
+  bulletSpeed: 20
+  distanceToEnemy: []
+  closestIndex: 0
+  a: {fileID: 0}
+  enemies: []

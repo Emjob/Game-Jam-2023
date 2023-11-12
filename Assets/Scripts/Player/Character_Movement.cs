@@ -21,6 +21,8 @@ public class Character_Movement : MonoBehaviour
     public bool canDash;
     public bool doubleShot;
     public bool canKnock;
+    public bool canHome;
+    public bool homing;
 
     private Vector3 input;
 
@@ -28,6 +30,7 @@ public class Character_Movement : MonoBehaviour
 
     private void Start()
     {
+        updateAbilities();
         canDash = true;
         rb = GetComponent<Rigidbody>();
      //   Bullet = GetComponent<Gun>();
@@ -36,6 +39,47 @@ public class Character_Movement : MonoBehaviour
     void Update()
     {
         Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        
+        if (isDashing)
+        {
+            return;
+        }
+
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+        input = new Vector3(horizontalInput, 0, verticalInput).normalized;
+
+        rb.velocity = new Vector3(input.x * playerSpeed, 0, input.z * playerSpeed);
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+        if(Input.GetKeyDown(KeyCode.R) && canKnock)
+        {
+            for(int i = 0; i < Enemies.Length; i++)
+            {
+                Enemies[i].GetComponent<Enemy_Health>().KnockBack();
+                Debug.Log("Key Register");
+            }
+        }
+        if(canHome && Input.GetKeyDown(KeyCode.F))
+        {
+            homing = true;
+        }
+     //   Debug.Log(rb.velocity);
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        rb.velocity = new Vector3(input.x * dashSpeed, 0, input.z * dashSpeed);
+        yield return new WaitForSeconds(dashDuration);
+        isDashing = false;
+    }
+
+    public void updateAbilities()
+    {
         if (Bullet.BulletNames.Contains("Purple Bullet"))
         {
             canDash = true;
@@ -76,37 +120,13 @@ public class Character_Movement : MonoBehaviour
         {
             canKnock = false;
         }
-        if (isDashing)
+        if (Bullet.BulletNames.Contains("Red Bullet"))
         {
-            return;
+            canHome = true;
         }
-
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        input = new Vector3(horizontalInput, 0, verticalInput).normalized;
-
-        rb.velocity = new Vector3(input.x * playerSpeed, 0, input.z * playerSpeed);
-        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        else
         {
-            StartCoroutine(Dash());
+            canHome = false;
         }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            for(int i = 0; i < Enemies.Length; i++)
-            {
-                Enemies[i].GetComponent<Enemy_Health>().KnockBack();
-                Debug.Log("Key Register");
-            }
-        }
-     //   Debug.Log(rb.velocity);
-    }
-
-    private IEnumerator Dash()
-    {
-        isDashing = true;
-        rb.velocity = new Vector3(input.x * dashSpeed, 0, input.z * dashSpeed);
-        yield return new WaitForSeconds(dashDuration);
-        isDashing = false;
     }
 }

@@ -149,6 +149,7 @@ MonoBehaviour:
   Damage: 1
   bounceSpeed: 10
   bounceCounter: 0
+  bulletSpeed: 20
   distanceToEnemy: []
   a: {fileID: 0}
   enemies: []

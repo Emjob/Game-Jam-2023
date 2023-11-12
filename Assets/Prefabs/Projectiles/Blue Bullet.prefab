@@ -148,3 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 50
   shielding: 10
+  bulletSpeed: 1
+  distanceToEnemy: []
+  closestIndex: 0
+  a: {fileID: 0}
+  enemies: []
