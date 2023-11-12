@@ -11,6 +11,8 @@ public class Player_Health : MonoBehaviour
     [SerializeField]private int currentHealth;
     public int shield;
 
+    public int Damage;
+
    [SerializeField]private Image[] hearts;
 
     public Sprite full;
@@ -47,6 +49,28 @@ public class Player_Health : MonoBehaviour
         if(shield > 0)
         {
             StartCoroutine(RemoveShield());
+        }
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            takeDamage(Damage);
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        if(shield != 0)
+        {
+            shield -= damage;
+            if(shield < 0)
+            {
+                currentHealth += shield;
+                shield = 0;
+            }
+        }
+        else
+        {
+            currentHealth -= damage;
         }
     }
 
