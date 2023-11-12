@@ -10,6 +10,8 @@ public class RoomManager : MonoBehaviour
     public bool progress;
     [SerializeField]private int maxRounds;
     [SerializeField] private GameObject Door;
+    private bool begun;
+
 
     void Start()
     {
@@ -34,9 +36,15 @@ public class RoomManager : MonoBehaviour
 
     }
 
-
-
-    void Spawn()
+    void OnTriggerEnter(Collider Other)
+    {
+        if(!begun)
+        {
+            begun = true;
+            Spawn();
+        }
+    }
+    public void Spawn()
     {
         // Debug.Log(SpawnPoints[0].GetComponent<EnemyLists>().test);
 
