@@ -59,7 +59,7 @@ public class Enemy_Health : MonoBehaviour
             float b = player.transform.position.z - transform.position.z;
             float knockVelocityX = transform.position.x - a;
             float knockVelocityZ = transform.position.z - b;
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(knockVelocityX * knockbackForce,0,knockVelocityZ * knockbackForce);
+            gameObject.GetComponent<Rigidbody>().AddForce(knockVelocityX * knockbackForce,0,knockVelocityZ * knockbackForce);
             Debug.Log("Knock Register");
         }
     }
